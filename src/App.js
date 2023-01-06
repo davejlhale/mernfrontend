@@ -9,7 +9,7 @@ import ClassSearch from './components/ClassSearch';
 import CreateUser from "./components/CreateUser";
 import PageNotFound from "./views/PageNotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-//import EditUser from "./components/EditUser"
+import EditUser from "./components/EditUser"
 import Login from './components/Login';
 import { getCookie } from './common';
 import { authCheck } from './utils';
@@ -127,7 +127,7 @@ const [reload,setReloadData]=useState("false");
                   <CreateUser setReloadData={setReloadData}/>
                 }
               />
-              {/* <Route
+              <Route
                 path="/editTeacher"
                 element={
                   <EditUser type="teacher" />
@@ -138,7 +138,7 @@ const [reload,setReloadData]=useState("false");
                 element={
                   <EditUser type="pupil" />
                 }
-              /> */}
+              />
 
             </> : null}
           <Route
