@@ -9,7 +9,7 @@ import ClassSearch from './components/ClassSearch';
 import CreateUser from "./components/CreateUser";
 import PageNotFound from "./views/PageNotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import EditUser from "./components/EditUser"
+//import EditUser from "./components/EditUser"
 import Login from './components/Login';
 import { getCookie } from './common';
 import { authCheck } from './utils';
