@@ -63,7 +63,7 @@ const App = () => {
   }
 
   if (loggedInUser && (!pupils.users || !subjects.Subject) ){
-    return( <h1>loading {loggedInUser } {jwtcookie}</h1>)
+    return( <h1>loading {loggedInUser } </h1>)
   }
 
   return (
