@@ -7,7 +7,7 @@ import { deleteUser } from "../../utils";
 import { useNavigate } from "react-router-dom";
 
 
-const UserList = ({ pupils, setPupils, type }) => {
+const UserList = ({ pupils, setPupils, type ,loggedInUser}) => {
 
     const [listPupils, ] = useState(pupils)
     const [, renderList] = useReducer(x => x + 1, 0);
@@ -69,7 +69,7 @@ const UserList = ({ pupils, setPupils, type }) => {
                                 <Column>{pupil.class}</Column>
                                 <Column>{pupil.email}</Column>
                                 <Column><Icon  onClick={() => editPupil(pupil)} src={edit} alt="edit" /> </Column>
-                                <Column><Icon onClick={() => deletePupil(pupil.username, pupil.class, pupil.email)} src={bin} alt="delete" /></Column>
+                               {loggedInUser === pupil.username ? null : <Column><Icon onClick={() => deletePupil(pupil.username, pupil.class, pupil.email)} src={bin} alt="delete" /></Column>}
                             </Row>
                         )
 
@@ -95,7 +95,8 @@ const UserList = ({ pupils, setPupils, type }) => {
                                 <Column>{pupil.username}</Column>
                                 <Column>{pupil.email}</Column>
                                 <Column><Icon onClick={() => editTeacher(pupil)}src={edit} alt="edit" /> </Column>
-                                <Column><Icon onClick={() => deletePupil(pupil.username, pupil.class, pupil.email)} src={bin} alt="delete" /></Column>
+                               
+                                {loggedInUser === pupil.username ? <Column></Column> : <Column><Icon onClick={() => deletePupil(pupil.username, pupil.class, pupil.email)} src={bin} alt="delete" /></Column>}
                             </Row>
                         )
 

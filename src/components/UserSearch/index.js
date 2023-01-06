@@ -10,7 +10,9 @@ const PupilSearch = ({ setPupils,jwtcookie}) => {
   const [studentClass, setSearchClass] = useState()
 
   const submitHandler = async (event) => {
+    if (event) {
     event.preventDefault();
+    }
     let findObj = {};
     //check used to cancel ternary assignment expected errors
     let check = !!username ? findObj.username = username : null;
@@ -22,6 +24,7 @@ const PupilSearch = ({ setPupils,jwtcookie}) => {
     return 0;
   }
 
+ 
 
     return (
         <form onSubmit={submitHandler} >

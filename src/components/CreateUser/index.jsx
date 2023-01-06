@@ -4,12 +4,13 @@ import { ContainerForm, RowLabel, RowInput ,Button} from "../../css/listStyles"
 import { useState } from "react";
 import { createUser } from "../../utils"
 
-const CreateUser = ({ _username }) => {
+const CreateUser = ({setReloadData}) => {
     const [obj, setObj] = useState({});
     const [res, setRes] = useState();
     const submitHandler = async (e) => {
         e.preventDefault();
         setRes(await createUser(obj));
+        setReloadData("true")
     }
 
     return (

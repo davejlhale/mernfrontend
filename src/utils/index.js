@@ -50,6 +50,20 @@ export const createUser = async (obj) => {
     }
 }
 
+
+export const updateUser = async (obj) => {
+    try {
+        console.log("update called")
+        const response = await fetch(`${process.env.REACT_APP_REST_API_URL}/api/updateUser`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(obj)
+        });
+        return await response.json();
+    } catch (error) {
+        console.log(error)
+    }
+}
 export const deleteUser = async (obj) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_REST_API_URL}/api/deleteUser`, {

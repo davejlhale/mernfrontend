@@ -1,87 +1,92 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { ContainerForm, RowLabel, RowInput ,Button} from "../../css/listStyles"
-import { useState } from "react";
+import { ContainerForm, RowLabel, RowInput, Button } from "../../css/listStyles"
+
+import { updateUser } from "../../utils"
+
 const EditUser = ({ type, user }) => {
     const location = useLocation();
-    console.log(location.state)
-    const [obj, setObj] = useState({});
+
+    let obj = {};
+    const unedited = { 
+        
+        "username":        location.state.user.username,
+        "email":        location.state.user.email,
+        "password":        location.state.user.password,
+        "class":        location.state.user.class,
+        "role":        location.state.user.role,
+        "subjects":        location.state.user.subjects,
+
+    }
+    delete unedited._id;
     const submitHandler = async (e) => {
         e.preventDefault();
-        //setRes(await createUser(obj));
-        console.log(obj)
+       
+       
+        
+let updateObj= {"find":unedited,"changeValuesTo":obj}
+console.log(updateObj)
+       await updateUser(updateObj);
+        // setReloadData("true")
+       
     }
-return ( <ContainerForm onSubmit={submitHandler}>
-    <RowLabel>Pupil Name</RowLabel>
-    <RowInput
-        onChange={(event) => {
-            setObj(obj => (
-                {
-                    ...obj,
-                    "username": event.target.value
+
+    Object.keys(unedited).map((key) => {
+        return obj[key] = location.state.user[key]
+    })
+
+    console.log("object", obj)
+
+
+    return (
+        <ContainerForm onSubmit={submitHandler}>
+            <RowLabel>Pupil Name</RowLabel>
+            <RowInput
+                onChange={
+                    (event) => {
+                        obj.username = event.target.value
+                    }
                 }
-            ))
-        }} type="text" required value={location.state.user.username}/>
+                type="text" required defaultValue={obj.username} />
 
-    <RowLabel>password</RowLabel>
-    <RowInput onChange={(event) => {
-        setObj(obj => (
-            {
-                ...obj,
-                "password": event.target.value
-            }
-        ))
-    }} type="password" required value={location.state.user.password}/>
-
-    <RowLabel>Email</RowLabel>
-    <RowInput onChange={(event) => {
-        setObj(obj => (
-            {
-                ...obj,
-                "email": event.target.value
-            }
-        ))
-    }} type="text" required value={location.state.user.email}/>
-
-    <RowLabel>School role</RowLabel>
-    <RowInput onChange={
-        (event) => {
-            setObj(obj => (
-                {
-                    ...obj,
-                    "role": event.target.value
+            <RowLabel>password</RowLabel>
+            <RowInput onChange={
+                (event) => {
+                    obj.password = event.target.value
                 }
-            ))
-        }
-    } type="text" value={location.state.user.role}/>
+            } type="password" required defaultValue={obj.password} />
 
-    <RowLabel>Pupil Class</RowLabel>
-    <RowInput onChange={
-        (event) => {
-            setObj(obj => (
-                {
-                    ...obj,
-                    "class": event.target.value
+            <RowLabel>Email</RowLabel>
+            <RowInput onChange={(event) => {
+
+                obj.email = event.target.value
+            }} type="text" required defaultValue={obj.email} />
+
+            <RowLabel>School role</RowLabel>
+            <RowInput onChange={
+
+                (event) => {
+                    obj.role = event.target.value
                 }
-            ))
-        }
-    } type="text" value={location.state.user.class}/>
+            } type="text" defaultValue={obj.role} />
 
-    <RowLabel>Enrolled Subjects</RowLabel>
-    <RowInput onChange={
-        (event) => {
-            setObj(obj => (
-                {
-                    ...obj,
-                    "subjects": event.target.value
+            <RowLabel>Pupil Class</RowLabel>
+            <RowInput onChange={
+                (event) => {
+                    obj.class = event.target.value
                 }
-            ))
-        }
-    } type="text" value={location.state.user.subjects}/>
+            } type="text" defaultValue={obj.class} />
 
-   <Button type="submit" >Update</Button>
-</ContainerForm>)
+            <RowLabel>Enrolled Subjects</RowLabel>
+            <RowInput onChange={
+                (event) => {
+                    obj.subjects = event.target.value
+                }
+            } type="text" defaultValue={obj.subjects} />
+
+            <Button type="submit" >Update</Button>
+        </ContainerForm>)
 
 }
 
- export default EditUser;
+export default EditUser;

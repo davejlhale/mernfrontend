@@ -17,7 +17,7 @@ import { authCheck } from './utils';
 import Navbar from "./components/Navbar";
 
 const App = () => {
-
+const [reload,setReloadData]=useState("false");
   const [pupils, setPupils] = useState([]);
   const [subjects, setSubjects] = useState([]);
   const [loggedInUser, setUser] = useState();
@@ -64,7 +64,7 @@ const App = () => {
       console.log("fetching data")
       fetchData();
     }
-  }, [loggedInUser,jwtcookie]);
+  }, [loggedInUser,jwtcookie,reload]);
 
 
 
@@ -107,7 +107,7 @@ const App = () => {
                   <>
                     <h1>Search Users</h1>
                     <UserSearch setPupils={setPupils} jwtcookie={jwtcookie}/>
-                    <UserList pupils={pupils} setPupils={setPupils} type="teacher" />
+                    <UserList pupils={pupils} setPupils={setPupils} type="teacher" loggedInUser={loggedInUser}/>
                   </>
                 }
               />
@@ -124,7 +124,7 @@ const App = () => {
               <Route
                 path="/createUser"
                 element={
-                  <CreateUser />
+                  <CreateUser setReloadData={setReloadData}/>
                 }
               />
               <Route
