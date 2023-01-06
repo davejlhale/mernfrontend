@@ -53,7 +53,7 @@ export const createUser = async (obj) => {
 
 export const updateUser = async (obj) => {
     try {
-        console.log("update called")
+        console.log("update called",obj)
         const response = await fetch(`${process.env.REACT_APP_REST_API_URL}/api/updateUser`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
