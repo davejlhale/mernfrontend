@@ -83,7 +83,7 @@ const App = () => {
                 element={
                   <>
                     <h1>Search Users</h1>
-                    <UserSearch setPupils={setPupils} />
+                    <UserSearch setPupils={setPupils} jwtcookie={jwtcookie}/>
                     <UserList pupils={pupils} setPupils={setPupils} type="pupil" />
                   </>
                 }
@@ -93,7 +93,7 @@ const App = () => {
                 element={
                   <>
                     <h1>Search Users</h1>
-                    <UserSearch setPupils={setPupils} />
+                    <UserSearch setPupils={setPupils} jwtcookie={jwtcookie}/>
                     <UserList pupils={pupils} setPupils={setPupils} type="teacher" />
                   </>
                 }

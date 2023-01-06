@@ -4,7 +4,7 @@ import {  getClasses } from "../../utils"
 
 
 
-const ClassSearch = ({setSubjects}) => {
+const ClassSearch = ({setSubjects,jwtcookie}) => {
 
     //states for class search
     const [subjectName, setSubjectName] = useState();
@@ -16,7 +16,7 @@ const ClassSearch = ({setSubjects}) => {
         let check = !!subjectName ? findObj.subjectname = subjectName : null;
         check += !!subjectClass ? findObj.class = subjectClass : null;
         console.log(check, " : ", findObj);
-        let data = await getClasses(findObj);
+        let data = await getClasses(findObj,jwtcookie);
         setSubjects(data);
         return 0;
     }

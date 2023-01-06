@@ -2,7 +2,7 @@ import React from "react";
 import {  useState } from "react";
 import { getPupils } from "../../utils"
 
-const PupilSearch = ({ setPupils}) => {
+const PupilSearch = ({ setPupils,jwtcookie}) => {
 
  //states for pupil search
   const [username, setSearchName] = useState()
@@ -17,7 +17,7 @@ const PupilSearch = ({ setPupils}) => {
     check += !!email ? findObj.email = email : null;
     check += !!studentClass ? findObj.class = studentClass : null;
     console.log(check, " : ", findObj);
-    let data = await getPupils(findObj);
+    let data = await getPupils(findObj,jwtcookie);
     setPupils(data);
     return 0;
   }
