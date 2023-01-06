@@ -29,7 +29,20 @@ const App = () => {
        loginWithToken(cookie)
        setJWT(cookie)
     }
-  
+    const fetchData = async () => {
+      let data = await getPupils({}, jwtcookie)
+      setPupils(() => {
+        return data;
+      });
+      let data2 = await getClasses({}, jwtcookie)
+      setSubjects(() => {
+        return data2;
+      });
+    };
+    if (loggedInUser) {
+      console.log("fetching data")
+      fetchData();
+    }
    
   }, []);
 
