@@ -3,7 +3,7 @@ import { writeCookie } from "../common"
 export const getPupils = async (findObj,jwtToken) => {
     try {
         console.log("getpupils",findObj,jwtToken)
-        const response = await fetch("http://localhost:5001/api/findUser", {
+        const response = await fetch(`${process.env.REACT_APP_REST_API_URL}/api/findUser`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export const getPupils = async (findObj,jwtToken) => {
 
 export const getClasses = async (findObj) => {
     try {
-        const response = await fetch("http://localhost:5001/api/findSubjectClass", {
+        const response = await fetch(`${process.env.REACT_APP_REST_API_URL}/api/findSubjectClass`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(findObj)
@@ -39,7 +39,7 @@ export const getClasses = async (findObj) => {
 
 export const createUser = async (obj) => {
     try {
-        const response = await fetch("http://localhost:5001/api/signup", {
+        const response = await fetch(`${process.env.REACT_APP_REST_API_URL}/api/signup`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(obj)
@@ -52,7 +52,7 @@ export const createUser = async (obj) => {
 
 export const deleteUser = async (obj) => {
     try {
-        const response = await fetch("http://localhost:5001/api/deleteUser", {
+        const response = await fetch(`${process.env.REACT_APP_REST_API_URL}/api/deleteUser`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(obj)
@@ -67,7 +67,7 @@ export const deleteUser = async (obj) => {
 export const authCheck = async (jwtToken) => {
     console.log("authCheck",jwtToken)
     try {
-        const response = await fetch("http://localhost:5001/api/authCheck", {
+        const response = await fetch(`${process.env.REACT_APP_REST_API_URL}/api/authCheck`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
