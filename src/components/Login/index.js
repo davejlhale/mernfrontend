@@ -1,4 +1,4 @@
-import Reactfrom from "react";
+
 import { ContainerForm, RowLabel, RowInput, Button } from "../../css/listStyles"
 import { useState } from "react";
 import { loginUser } from "../../utils"
@@ -10,7 +10,6 @@ const Login = ({setter,setJWT,action}) => {
      }
 
     const [obj, setObj] = useState({});
-    const [res, setRes] = useState();
 
     if (action==="logout") {
        

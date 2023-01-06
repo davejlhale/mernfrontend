@@ -1,15 +1,15 @@
 import React from "react";
-import { useLocation,useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ContainerForm, RowLabel, RowInput ,Button} from "../../css/listStyles"
 import { useState } from "react";
 const EditUser = ({ type, user }) => {
     const location = useLocation();
     console.log(location.state)
     const [obj, setObj] = useState({});
-    const [res, setRes] = useState();
     const submitHandler = async (e) => {
         e.preventDefault();
         //setRes(await createUser(obj));
+        console.log(obj)
     }
 return ( <ContainerForm onSubmit={submitHandler}>
     <RowLabel>Pupil Name</RowLabel>

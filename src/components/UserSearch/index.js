@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Row } from "../../css/listStyles"
 import {  useState } from "react";
 import { getPupils } from "../../utils"
 

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const UserList = ({ pupils, setPupils, type }) => {
 
-    const [listPupils, setListPupils] = useState(pupils)
+    const [listPupils, ] = useState(pupils)
     const [, renderList] = useReducer(x => x + 1, 0);
 
     const navigate = useNavigate(); 
@@ -25,11 +25,11 @@ const UserList = ({ pupils, setPupils, type }) => {
 
         let tempPupils = listPupils;
         for (var i = tempPupils.users.length - 1; i >= 0; --i) {
-            if (tempPupils.users[i].username == username
+            if (tempPupils.users[i].username === username
                 &&
-                tempPupils.users[i].email == email
+                tempPupils.users[i].email === email
                 &&
-                tempPupils.users[i].class == userclass
+                tempPupils.users[i].class === userclass
             ) {
                 tempPupils.users.splice(i, 1);
             }
@@ -74,6 +74,7 @@ const UserList = ({ pupils, setPupils, type }) => {
                         )
 
                     }
+                    return 0;
                 })} </Container>)
     }
 
@@ -100,7 +101,7 @@ const UserList = ({ pupils, setPupils, type }) => {
                         )
 
                     }
-
+return 0;
                 })}
             </Container>
         )

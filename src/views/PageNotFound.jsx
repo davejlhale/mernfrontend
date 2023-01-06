@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import "../css/listStyles"
-import { Container, Row } from "../css/listStyles"
+import { Container } from "../css/listStyles"
 const PageNotFound = () => {
 
 
