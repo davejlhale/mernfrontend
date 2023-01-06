@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row } from "../../css/listStyles"
+import { Container, Row ,Column} from "../../css/listStyles"
 
 
 const ClassList = ({ subjects }) => {
@@ -9,8 +9,8 @@ const ClassList = ({ subjects }) => {
             {(subjects.Subject).map((subject, index) => {
                 return (
                 <Row key={index}>
-                    <p>{subject.subjectname}</p>
-                    <p>{subject.class}</p>
+                    <Column>{subject.subjectname}</Column>
+                    <Column>{subject.class}</Column>
                 </Row>
                 )
             })}
