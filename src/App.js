@@ -29,13 +29,14 @@ const App = () => {
        loginWithToken(cookie)
        setJWT(cookie)
     }
-   fetchData();
+  
    
   }, []);
 
 
+
   useEffect(() => {
-    console.log("jwt", loggedInUser,jwtcookie)
+    
     const fetchData = async () => {
       let data = await getPupils({}, jwtcookie)
       setPupils(() => {
@@ -50,7 +51,8 @@ const App = () => {
       console.log("fetching data")
       fetchData();
     }
-  }, [loggedInUser]);
+  }, [loggedInUser,jwtcookie]);
+
 
 
 
