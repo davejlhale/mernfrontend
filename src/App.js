@@ -127,7 +127,7 @@ const [reload,setReloadData]=useState("false");
                   <CreateUser setReloadData={setReloadData}/>
                 }
               />
-              <Route
+              {/* <Route
                 path="/editTeacher"
                 element={
                   <EditUser type="teacher" />
@@ -138,7 +138,7 @@ const [reload,setReloadData]=useState("false");
                 element={
                   <EditUser type="pupil" />
                 }
-              />
+              /> */}
 
             </> : null}
           <Route
