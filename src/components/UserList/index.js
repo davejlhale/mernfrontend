@@ -74,7 +74,7 @@ const UserList = ({ pupils, setPupils, type }) => {
                         )
 
                     }
-                    return 0;
+                    else { return null;}
                 })} </Container>)
     }
 
