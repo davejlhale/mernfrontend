@@ -30,16 +30,16 @@ const App = () => {
        setJWT(cookie)
     }
     const fetchData = async () => {
-      let data = await getPupils({}, jwtcookie)
+      let data = await getPupils({}, cookie)
       setPupils(() => {
         return data;
       });
-      let data2 = await getClasses({}, jwtcookie)
+      let data2 = await getClasses({}, cookie)
       setSubjects(() => {
         return data2;
       });
     };
-    if (loggedInUser) {
+    if (cookie) {
       console.log("fetching data")
       fetchData();
     }
