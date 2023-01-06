@@ -99,7 +99,7 @@ const UserList = ({ pupils, setPupils, type }) => {
                             </Row>
                         )
 
-                    } else { return;}
+                    } else { return null;}
 
                 })}
             </Container>
