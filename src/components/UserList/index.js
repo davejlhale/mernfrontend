@@ -93,15 +93,14 @@ const UserList = ({ pupils, setPupils, type }) => {
                         return (
                             <Row key={index}>
                                 <Column>{pupil.username}</Column>
-                                
                                 <Column>{pupil.email}</Column>
                                 <Column><Icon onClick={() => editTeacher(pupil)}src={edit} alt="edit" /> </Column>
                                 <Column><Icon onClick={() => deletePupil(pupil.username, pupil.class, pupil.email)} src={bin} alt="delete" /></Column>
                             </Row>
                         )
 
-                    }
-return 0;
+                    } else { return;}
+
                 })}
             </Container>
         )
